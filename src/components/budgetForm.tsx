@@ -29,7 +29,7 @@ export const Budget = ({title}:any) => {
           }
        
       } catch (e) {
-        console.log(e);
+        console.error("",e);
       }
    
   };
