@@ -3,7 +3,7 @@ import React, {  useContext, useState } from 'react';
 import { dataContext } from '../context/GlobalContext';
 
 
-export const Budget = ({title}:any) => {
+export const Budget = () => {
     const{username}=useContext(dataContext)
   const [category, setCategory] = useState('');
   const [amount, setAmount] = useState('');
@@ -40,7 +40,7 @@ export const Budget = ({title}:any) => {
         <div className='budgetForm'>
       <div className='Budgetform'>
         <h1 style={{color:"white"}}>
-            {title}
+            Budget
         </h1>
         <input
           className='budgetImput'
