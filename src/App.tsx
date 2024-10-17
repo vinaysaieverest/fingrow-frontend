@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import "./App.css";
 import { Budget } from "./components/budgetForm";
+import { Saving } from "./components/savingsForm";
 import { HomeIntro } from "./components/homeIntro";
 import { Transaction } from "./components/transaction";
 import { LoginPage } from "./components/login";
@@ -28,8 +29,8 @@ function App() {
           </div>
 
           <div className="spendForms">
-            <Budget title="Budget" />
-            <Budget title="Saving" />
+            <Budget/>
+            <Saving />
             <Transaction />
           </div>
 
