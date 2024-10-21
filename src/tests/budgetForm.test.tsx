@@ -175,6 +175,22 @@ describe("should test the budget form",()=>{
               
             });
           });
+
+
+
+          test('displays an alert if goal or target fields are empty', () => {
+            render(<dataContext.Provider
+              value={{
+                username:"Vinaysai"
+              }}
+            >
+              <Budget/>
+            </dataContext.Provider>);
+        
+            const submitButton = screen.getByTestId('submitButton');
+            fireEvent.click(submitButton);
+            expect(window.alert).toHaveBeenCalledWith('Please fill in all fields');
+          });
           
           test("handles invalid login with alert for no user found", async () => {
             (axios.post as jest.Mock).mockResolvedValue({

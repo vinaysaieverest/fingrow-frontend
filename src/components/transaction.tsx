@@ -27,17 +27,24 @@ export function Transaction() {
       setCategory('');
       setTname('');
       setType('')
-      if((await response).status===200){
-        alert("Transaction completed")
+      if ((await response).status === 200) {
+        const result = (await response).data.result;
+        if (result && result.success) {
+          alert(result.message);
+        } else {
+          alert("Transaction completed");
+        }
+      } else if ((await response).status === 404) {
+        alert("No budget found please create the budget");
       }
-      if((await response).status===404){
-        alert("No budget found please create the budget")
-      }
-     
-    } catch (e) {
-      console.error("",e);
     }
+   catch (e) {
+    console.error("",e);
+  } 
   };
+     
+    
+  
   return (
     <div className="TransactionmainContainer">
       <div className="Budgetform">

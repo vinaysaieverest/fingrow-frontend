@@ -16,9 +16,6 @@ export const BudgetSavingSelector = () => {
     setEndDate(event.target.value)
   };
   const fetchReport = async () => {
-console.log(startDate)
-console.log(endDate)
-console.log(budgetReportData)
   };
 
   return (

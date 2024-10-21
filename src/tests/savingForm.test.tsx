@@ -58,6 +58,24 @@ describe("should test the savings form",()=>{
             );
           });
         });
+
+
+
+        test('displays an alert if goal or target fields are empty', () => {
+          const mockContextValue = {
+            username:"Vinaysai"
+          };
+          window.alert = jest.fn();
+          render(<dataContext.Provider value={mockContextValue}>
+            <Saving />
+          </dataContext.Provider>);
+          const submitButton = screen.getByTestId('submitButton');
+          fireEvent.click(submitButton);
+          expect(window.alert).toHaveBeenCalledWith('Please fill in all fields');
+        });
+
+
+
         test("handles invalid login with alert for no user found", async () => {
             (axios.post as jest.Mock).mockResolvedValue({
               status: 404,

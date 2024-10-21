@@ -22,13 +22,16 @@ export const Saving = () => {
         );
         setSavingCategory('');
         setTarget('')
+        console.log((await response))
 
         if((await response).status===404){
           alert("No saving found please create the budget")
         }
         if((await response).status===200){
             alert("Saving created succesfully")
+            alert(response)
           }
+        
        
       } catch (e) {
         console.error("",e);

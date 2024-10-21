@@ -18,6 +18,7 @@ export default function GlobalContext(props: any) {
       try {
         const response = await axios.get(`http://localhost:5005/api/recenttransactions/${username}`);
         setTransactionData(response.data);  
+        console.log(response.data)
       } catch (e) {
         console.log(e);
       }
