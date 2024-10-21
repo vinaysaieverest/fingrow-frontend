@@ -25,13 +25,11 @@ export const RegisterPage = () => {
           setPassword('');
           setSalary('')
         } catch (error) {
-          console.error('Error pushing data to the database:', error);
-          
-            
+          console.error('Error pushing data to the database:', error);     
       };
     }
     return (
-        <div className="register-container">
+        <form className="register-container">
             <div className="register-box">
                 <h2 className="register-title">Register</h2>
                 
@@ -77,7 +75,7 @@ export const RegisterPage = () => {
                     </button>
                 
             </div>
-        </div>
+        </form>
     );
 };
 

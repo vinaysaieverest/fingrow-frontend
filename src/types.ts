@@ -10,3 +10,8 @@ export type Rcard ={
     allocatedAmount:number,
     spentAmount:number
 }
+export type savingsTypes ={
+  Saving:string,
+  Target:number,
+  Current:number
+}
