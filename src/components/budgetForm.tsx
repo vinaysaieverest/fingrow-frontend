@@ -9,7 +9,12 @@ export const Budget = () => {
   const [amount, setAmount] = useState('');
 
   const handleSubmit = async() => {
+    if (!category || !amount) {
+      alert('Please fill in all fields');
+      return;
+    }
     try {
+      
         const response = axios.post(
           `http://localhost:5005/api/budget/${username}`,
           {
@@ -48,6 +53,7 @@ export const Budget = () => {
           value={category}
           data-testid="titleInput"
           onChange={(e) => setCategory(e.target.value)}
+          required
         />
       </div>
       <div>
@@ -57,12 +63,14 @@ export const Budget = () => {
           value={amount}
           data-testid="amountInput"
           onChange={(e) => setAmount(e.target.value)}
+          required
         />
       </div>
       <div>
         <button className='budgetButton'
         data-testid="submitButton"
          onClick={handleSubmit}>Submit</button>
+         
       </div>
     </div>
     </div>
