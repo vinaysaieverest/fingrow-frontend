@@ -9,6 +9,10 @@ export function Transaction() {
   const [type, setType] = useState("");
   const [category, setCategory] = useState("");
   const handleSubmit = async () => {
+    if(!transactionName||!amount||!type||!category){
+      alert("Please fill all the fields")
+      return
+    }
     try {
       const response = axios.post(
         `http://localhost:5005/api/transaction/${username}`,
