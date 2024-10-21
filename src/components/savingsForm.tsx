@@ -1,25 +1,27 @@
 import axios from 'axios';
 import React, {  useContext, useState } from 'react';
 import { dataContext } from '../context/GlobalContext';
-
-
 export const Saving = () => {
     const{username}=useContext(dataContext)
   const [goal, setSavingCategory] = useState('');
-  const [totalSavings, setSavingAmount] = useState('');
+  const [target, setTarget] = useState('');
 
   const handleSubmit = async() => {
+    if (!goal || !target) {
+      alert('Please fill in all fields');
+      return; 
+    }
     try {
         const response = axios.post(
           `http://localhost:5005/api/saving/${username}`,
           {
             goal,
-            totalSavings,
+            target,
             
           }
         );
         setSavingCategory('');
-        setSavingAmount('')
+        setTarget('')
 
         if((await response).status===404){
           alert("No saving found please create the budget")
@@ -47,6 +49,7 @@ export const Saving = () => {
           placeholder="Category"
           value={goal}
           data-testid="titleInput"
+          required
           onChange={(e) => setSavingCategory(e.target.value)}
         />
       </div>
@@ -54,9 +57,10 @@ export const Saving = () => {
         <input
          className='budgetImput'
           placeholder="Amount"
-          value={totalSavings}
+          value={target}
           data-testid="amountInput"
-          onChange={(e) => setSavingAmount(e.target.value)}
+          required
+          onChange={(e) => setTarget(e.target.value)}
         />
       </div>
       <div>
