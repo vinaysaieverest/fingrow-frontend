@@ -28,7 +28,6 @@ describe("should test the transactions components",()=>{
     const passwordInput = screen.getByTestId("amountInput");
     expect(passwordInput).toBeInTheDocument();
 
-
     const salaryInput = screen.getByTestId("typeInput");
     expect(salaryInput).toBeInTheDocument();
 
@@ -39,11 +38,7 @@ describe("should test the transactions components",()=>{
     expect(submitButton).toBeInTheDocument();
     })
     test("should test the input field is working properly",()=>{
-
     })
-
-
-
     test("successful transaction input fileds", async () => {
       const mockContextValue = {
         username:"Vinaysai",
@@ -90,25 +85,16 @@ describe("should test the transactions components",()=>{
         
       });
     }); 
-
-
-
-
-
     test("successful transaction input fileds", async () => {
       const mockContextValue = {
         username:"Vinaysai",
         transactionName:"Apple", 
         setTname:jest.fn()
       };
-
-
       (axios.post as jest.Mock).mockResolvedValue({
         status: 200,
       });
-  
       window.alert = jest.fn();
-  
       render(
         <dataContext.Provider value={mockContextValue}>
           <Transaction />
@@ -141,7 +127,6 @@ describe("should test the transactions components",()=>{
         expect(window.alert).toHaveBeenCalledWith(
           "Transaction completed"
         );
-        
       });
     }); 
 
